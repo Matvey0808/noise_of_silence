@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("SpeedWalk, SpeedJump")]
-    public float speed = 5f;
-    public float jumpSpeed = 5f;
+    [SerializeField]private float speed = 5f;
+    [SerializeField]private float jumpSpeed = 5f;
     [Header("Physic and math")]
     private Rigidbody _rb;
     private Vector2 _moveInput;
-    public Transform playerBody;
+    [SerializeField] private Transform playerBody;
     private bool _isGround = true;
 
     private void Awake() 
