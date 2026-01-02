@@ -1,12 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class LookPlayer : MonoBehaviour
 {
     [Header("LookPlayer")]
-    [SerializeField] private float mouseSens = 50f;
-    [SerializeField] private Transform playerBody;
+    [SerializeField] private float _mouseSens = 50f;
+    [SerializeField] private Transform _playerBody;
+    [SerializeField] private float _sRoll = 0.5f;
+    private float _roll;
     private float _xRotate = 0f;
+    private float _defaultPosCamera;
 
     void Start()
     {
@@ -20,13 +24,19 @@ public class LookPlayer : MonoBehaviour
             return;
         }
 
-        float mouseX = Mouse.current.delta.value.x * mouseSens * Time.deltaTime;
-        float mouseY = Mouse.current.delta.value.y * mouseSens * Time.deltaTime;
+        float mouseX = Mouse.current.delta.value.x * _mouseSens * Time.deltaTime;
+        float mouseY = Mouse.current.delta.value.y * _mouseSens * Time.deltaTime;
 
-        playerBody.Rotate(Vector3.up * mouseX);
+        _playerBody.Rotate(Vector3.up * mouseX);
         _xRotate -= mouseY;
 
         _xRotate = Mathf.Clamp(_xRotate, -60, 55);
-        transform.localRotation = Quaternion.Euler(_xRotate, 0, 0);
+
+        float mouserollX = Mouse.current.delta.x.value;
+        _roll = -mouserollX * _sRoll;
+        _roll = Mathf.Clamp(_roll, -15f, 15f);
+
+        _defaultPosCamera = Mathf.Lerp(_defaultPosCamera, _roll, 5f * Time.deltaTime);
+        transform.localRotation = Quaternion.Euler(_xRotate, 0f, _defaultPosCamera);
     }
 }
