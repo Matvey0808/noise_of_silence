@@ -26,7 +26,7 @@ public class LookPlayer : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
         _xRotate -= mouseY;
 
-        _xRotate = Mathf.Clamp(_xRotate, -60, 75);
+        _xRotate = Mathf.Clamp(_xRotate, -60, 55);
         transform.localRotation = Quaternion.Euler(_xRotate, 0, 0);
     }
 }

@@ -274,12 +274,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659064333}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.83, z: 0.108}
+  m_LocalRotation: {x: -0.07778676, y: 3.1242528e-10, z: -0.0000000126797275, w: 0.99697006}
+  m_LocalPosition: {x: 0, y: 0.17177118, z: 0.15015844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1712119123488106155}
+  m_Father: {fileID: 9174782752766234428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &659064335
 MonoBehaviour:
@@ -380,7 +380,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -762,7 +762,6 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 659064334}
   - {fileID: 8573048817334561399}
   - {fileID: 4108062554992624762}
   m_Father: {fileID: 0}
@@ -873,7 +872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c796b4f7833abf49a23b47077d136a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 5
+  speed: 3
+  rb: {fileID: 2056310945832582163}
   playerBody: {fileID: 1712119123488106155}
 --- !u!65 &2056310945832582165
 BoxCollider:
@@ -1784,6 +1784,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5926708893538363811}
+  - {fileID: 659064334}
   m_Father: {fileID: 3256118627408219230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9190913309659972477

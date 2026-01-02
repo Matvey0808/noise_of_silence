@@ -7,14 +7,14 @@ public class PlayerController : MonoBehaviour
     [Header("SpeedWalk, SpeedJump")]
     [SerializeField]private float speed = 5f;
     [Header("Physic and math")]
-    private Rigidbody _rb;
+    public Rigidbody rb;
     private Vector2 _moveInput;
     [SerializeField] private Transform playerBody;
     private Animator _animPlayer;
 
     private void Awake() 
     {
-        _rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         _animPlayer = GetComponentInChildren<Animator>();
     }
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 move = playerBody.transform.forward * _moveInput.y + playerBody.transform.right * _moveInput.x;
-        _rb.linearVelocity = new Vector3(move.x * speed, _rb.linearVelocity.y, move.z * speed);
+        rb.linearVelocity = new Vector3(move.x * speed, rb.linearVelocity.y, move.z * speed);
 
         _animPlayer.SetFloat("isMovePlayer", _moveInput.magnitude);
     }
