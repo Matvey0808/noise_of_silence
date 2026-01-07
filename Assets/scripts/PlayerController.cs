@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("SpeedWalk, SpeedJump")]
-    [SerializeField] private float _speed = 3f;
+    [SerializeField] private float _speed = 2f;
     public AudioSource stepAudio;
     public float stepFadeAudio = 2f;
     public float walkAudioVolume = 1f;
