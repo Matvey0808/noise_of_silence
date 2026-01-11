@@ -30,7 +30,7 @@ public class LookPlayer : MonoBehaviour
         _playerBody.Rotate(Vector3.up * mouseX);
         _xRotate -= mouseY;
 
-        _xRotate = Mathf.Clamp(_xRotate, -60, 50);
+        _xRotate = Mathf.Clamp(_xRotate, -60, 55);
 
         float mouserollX = Mouse.current.delta.x.value;
         _roll = -mouserollX * _sRoll;

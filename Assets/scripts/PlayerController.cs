@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("SpeedWalk, SpeedJump")]
-    [SerializeField] private float _speed = 2f;
+    [SerializeField] private float _speed = 4f;
     public AudioSource stepAudio;
-    public float stepFadeAudio = 2f;
+    public float stepFadeAudio = 7f;
     public float walkAudioVolume = 1f;
     private float _currentVolume = 0f;
     [Header("Physic and math")]
@@ -70,6 +70,6 @@ public class PlayerController : MonoBehaviour
         Vector3 move = playerBody.transform.forward * _moveInput.y + playerBody.transform.right * _moveInput.x;
         rb.linearVelocity = new Vector3(move.x * _speed, rb.linearVelocity.y, move.z * _speed);
 
-        _animPlayer.SetFloat("isMovePlayer", _moveInput.magnitude);
+        _animPlayer.SetFloat("isMove", _moveInput.magnitude);
     }
 }
